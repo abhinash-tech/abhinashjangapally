@@ -136,3 +136,69 @@ body.dark .theme-toggle {
   background: #222;
   color: #fff;
 }
+
+/* ===== Light / Dark Toggle ===== */
+
+.theme-switch {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 14px;
+  margin-bottom: 22px;
+  cursor: pointer;
+  user-select: none;
+}
+
+.theme-switch .label {
+  font-size: 15px;
+  font-weight: 600;
+  color: #b0b0b0;
+  transition: color 0.3s ease;
+}
+
+.theme-switch .label.active {
+  color: #1f2937;
+}
+
+.switch {
+  width: 64px;
+  height: 34px;
+  background: linear-gradient(135deg, #6a8dff, #8bb5ff);
+  border-radius: 50px;
+  position: relative;
+  transition: background 0.4s ease;
+}
+
+.knob {
+  width: 26px;
+  height: 26px;
+  background: #ffffff;
+  border-radius: 50%;
+  position: absolute;
+  top: 4px;
+  left: 4px;
+  transition: transform 0.4s ease;
+  box-shadow: 0 6px 15px rgba(0,0,0,0.2);
+}
+
+/* ===== Dark Mode Toggle State ===== */
+
+body.dark .switch {
+  background: linear-gradient(135deg, #2c2f36, #4b5563);
+}
+
+body.dark .knob {
+  transform: translateX(30px);
+}
+
+body.dark .theme-switch .label.light {
+  color: #6b7280;
+}
+
+body.dark .theme-switch .label.dark {
+  color: #ffffff;
+}
+
+body.dark .theme-switch .label.dark {
+  font-weight: 600;
+}
