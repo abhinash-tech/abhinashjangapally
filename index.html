@@ -13,6 +13,7 @@
 <body>
 
   <div class="container">
+    <button class="theme-toggle" onclick="toggleTheme()">🌙</button>
     <img src="Billa-2009(Prabhas).jpeg" alt="Abhinash" class="profile-img"/>
 
     <h1>Abhinash Jangapally</h1>
@@ -40,6 +41,13 @@
       </a>
     </div>
   </div>
+<script>
+  function toggleTheme() {
+    document.body.classList.toggle("dark");
 
+    const btn = document.querySelector(".theme-toggle");
+    btn.textContent = document.body.classList.contains("dark") ? "☀️" : "🌙";
+  }
+</script>
 </body>
           </html>
