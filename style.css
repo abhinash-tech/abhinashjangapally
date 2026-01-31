@@ -202,3 +202,14 @@ body.dark .theme-switch .label.dark {
 body.dark .theme-switch .label.dark {
   font-weight: 600;
 }
+
+.container {
+  position: relative; /* IMPORTANT */
+}
+
+/* Top-right placement */
+.toggle-wrapper {
+  position: absolute;
+  top: 18px;
+  right: 18px;
+}
