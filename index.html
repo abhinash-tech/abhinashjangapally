@@ -13,15 +13,22 @@
 <body>
 
   <div class="container">
-    <div class="theme-switch" onclick="toggleTheme()">
-  <span class="label light active">Light</span>
+    <p id="browser-note" style="display:none;font-size:12px;color:#777;margin-bottom:12px;">
+  Tap ⋮ and choose <b>Open in Browser</b> for best experience 🌐
+    </p>
+   <div class="toggle-wrapper">
+  <div class="theme-switch" onclick="toggleTheme()">
+    <span class="label light active">Light</span>
 
-  <div class="switch">
-    <div class="knob"></div>
-  </div>
-
-  <span class="label dark">Dark</span>
+    <div class="switch">
+      <div class="knob"></div>
+      <div class="bubble b1"></div>
+      <div class="bubble b2"></div>
     </div>
+
+    <span class="label dark">Dark</span>
+  </div>
+</div>
     <img src="Billa-2009(Prabhas).jpeg" alt="Abhinash" class="profile-img"/>
 
     <h1>Abhinash Jangapally</h1>
@@ -50,13 +57,51 @@
     </div>
   </div>
 <script>
-  function toggleTheme() {
-    document.body.classList.toggle("dark");
+  const lightLabel = document.querySelector(".label.light");
+  const darkLabel = document.querySelector(".label.dark");
 
-    const isDark = document.body.classList.contains("dark");
-    document.querySelector(".label.light").classList.toggle("active", !isDark);
-    document.querySelector(".label.dark").classList.toggle("active", isDark);
+  // Apply theme
+  function applyTheme(isDark) {
+    document.body.classList.toggle("dark", isDark);
+    lightLabel.classList.toggle("active", !isDark);
+    darkLabel.classList.toggle("active", isDark);
+  }
+
+  // Detect system theme on first load
+  const systemPrefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
+  applyTheme(systemPrefersDark);
+
+  // Toggle on click
+  function toggleTheme() {
+    const isDark = !document.body.classList.contains("dark");
+    applyTheme(isDark);
   }
 </script>
+  <script>
+  const ua = navigator.userAgent || navigator.vendor || window.opera;
+
+  if (ua.includes("Instagram") && !ua.includes("Android")) {
+    document.getElementById("browser-note").style.display = "block";
+  }
+  </script>
+  <script>
+  (function () {
+    const ua = navigator.userAgent || navigator.vendor || window.opera;
+
+    const isInstagram = ua.includes("Instagram");
+    const isAndroid = ua.includes("Android");
+
+    if (isInstagram && isAndroid) {
+      const currentUrl = window.location.href
+        .replace(/^https?:\/\//, "");
+
+      // Redirect to Chrome using intent
+      window.location.href =
+        "intent://" +
+        currentUrl +
+        "#Intent;scheme=https;package=com.android.chrome;end;";
+    }
+  })();
+  </script>
 </body>
           </html>
