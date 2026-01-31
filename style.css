@@ -160,47 +160,43 @@ body.dark .theme-toggle {
   color: #1f2937;
 }
 
+/* Toggle size reduced */
 .switch {
-  width: 64px;
-  height: 34px;
+  width: 52px;
+  height: 28px;
   background: linear-gradient(135deg, #6a8dff, #8bb5ff);
   border-radius: 50px;
   position: relative;
-  transition: background 0.4s ease;
 }
 
+/* Knob smaller + bounce */
 .knob {
-  width: 26px;
-  height: 26px;
+  width: 22px;
+  height: 22px;
   background: #ffffff;
   border-radius: 50%;
   position: absolute;
-  top: 4px;
-  left: 4px;
-  transition: transform 0.4s ease;
-  box-shadow: 0 6px 15px rgba(0,0,0,0.2);
+  top: 3px;
+  left: 3px;
+
+  transition: transform 0.45s cubic-bezier(0.34, 1.56, 0.64, 1);
+  box-shadow: 0 4px 10px rgba(0,0,0,0.25);
 }
 
 /* ===== Dark Mode Toggle State ===== */
 
+/* Dark mode state */
 body.dark .switch {
   background: linear-gradient(135deg, #2c2f36, #4b5563);
 }
 
 body.dark .knob {
-  transform: translateX(30px);
+  transform: translateX(24px);
 }
 
-body.dark .theme-switch .label.light {
-  color: #6b7280;
-}
-
-body.dark .theme-switch .label.dark {
+/* Dark text */
+body.dark .theme-text {
   color: #ffffff;
-}
-
-body.dark .theme-switch .label.dark {
-  font-weight: 600;
 }
 
 .container {
@@ -212,4 +208,30 @@ body.dark .theme-switch .label.dark {
   position: absolute;
   top: 18px;
   right: 18px;
+}
+/* Theme text (Light / Dark) */
+.theme-text {
+  font-size: 12px;
+  font-weight: 700;
+  font-family: sans-serif;
+  color: #1f2937;
+}
+/* Decorative bubbles (scaled down) */
+.bubble {
+  position: absolute;
+  background: rgba(255,255,255,0.6);
+  border-radius: 50%;
+}
+.b1 {
+  width: 5px;
+  height: 5px;
+  top: 6px;
+  right: 10px;
+}
+
+.b2 {
+  width: 3px;
+  height: 3px;
+  top: 14px;
+  right: 6px;
 }
