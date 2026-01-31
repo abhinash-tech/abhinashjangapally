@@ -17,16 +17,14 @@
   Tap ⋮ and choose <b>Open in Browser</b> for best experience 🌐
     </p>
    <div class="toggle-wrapper">
-  <div class="theme-switch" onclick="toggleTheme()">
-    <span class="label light active">Light</span>
+  <div class="theme-text" id="themeText">Light</div>
 
+  <div class="theme-switch" onclick="toggleTheme()">
     <div class="switch">
       <div class="knob"></div>
       <div class="bubble b1"></div>
       <div class="bubble b2"></div>
     </div>
-
-    <span class="label dark">Dark</span>
   </div>
 </div>
     <img src="Billa-2009(Prabhas).jpeg" alt="Abhinash" class="profile-img"/>
@@ -57,21 +55,17 @@
     </div>
   </div>
 <script>
-  const lightLabel = document.querySelector(".label.light");
-  const darkLabel = document.querySelector(".label.dark");
+  const themeText = document.getElementById("themeText");
 
-  // Apply theme
   function applyTheme(isDark) {
     document.body.classList.toggle("dark", isDark);
-    lightLabel.classList.toggle("active", !isDark);
-    darkLabel.classList.toggle("active", isDark);
+    themeText.textContent = isDark ? "Dark" : "Light";
   }
 
-  // Detect system theme on first load
-  const systemPrefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
-  applyTheme(systemPrefersDark);
+  // Detect system theme on load
+  const systemDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
+  applyTheme(systemDark);
 
-  // Toggle on click
   function toggleTheme() {
     const isDark = !document.body.classList.contains("dark");
     applyTheme(isDark);
