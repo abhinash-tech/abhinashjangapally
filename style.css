@@ -235,3 +235,32 @@ body.dark .theme-text {
   top: 14px;
   right: 6px;
 }
+
+.footer{
+    margin-top:35px;
+    padding-top:18px;
+    border-top:1px solid rgba(0,0,0,.08);
+    text-align:center;
+    font-size:13px;
+    color:#777;
+    font-family:sans-serif;
+}
+
+.heart{
+    color:#ff3b5c;
+    animation: heartbeat 1.3s infinite;
+}
+
+@keyframes heartbeat{
+    0%,100%{
+        transform:scale(1);
+    }
+    50%{
+        transform:scale(1.25);
+    }
+}
+
+body.dark .footer{
+    border-top:1px solid rgba(255,255,255,.08);
+    color:#aaa;
+}
