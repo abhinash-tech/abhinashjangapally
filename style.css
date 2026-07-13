@@ -242,7 +242,7 @@ body.dark .theme-text {
     border-top:1px solid rgba(0,0,0,.08);
     text-align:center;
     font-size:13px;
-    color:#777;
+    color:#000000;
     font-family:sans-serif;
 }
 
@@ -260,7 +260,7 @@ body.dark .theme-text {
     }
 }
 
-body.dark .footer{
+body.white .footer{
     border-top:1px solid rgba(255,255,255,.08);
     color:#aaa;
 }
